@@ -74,8 +74,9 @@
         
         /* Exercise 6: Write a selector to target the “even” links in the navbar
          */
-        nav a:nth-of-type(2n) {
-            background-color: rgb(0, 96, 241)!important; 
+
+        nav span:nth-of-type(2n) {
+            color: rgb(0, 96, 241); 
         }
         
         /* Exercise 7: Write a selector to target all the <li> into the first ordered-list in the sidebar ( Archives )
@@ -108,17 +109,17 @@
        }
        
        /* Exercise 11: Write a selector to target the “Newer” button at the bottom
-        */
+       */
 
-       a.btn.btn-outline-secondary.disabled {
+       nav:last-of-type .btn:last-of-type{
            background-color: rgb(226, 201, 59);
        }
-       
+    
        /* Exercise 12: Write a selector to target the footer’s second link
         */
 
        .blog-footer > p > a:nth-of-type(2) {
-           color: rgb(197, 96, 96);
+           color: rgb(89, 160, 7);
        }
        
 
@@ -485,15 +486,35 @@
         function removeTwitterButton() {
             twitterNode.parentElement.removeChild(twitterNode);
         }
-        
+
         removeTwitterButton()
 
         
-        // Write a JavaScript functionality to remove the first 50 characters in the first paragraph for every blog post
-        // Write a JavaScript functionality to add a new Blog Post (div with title and text)
-        // Write a JavaScript functionality to remove the last Blog Post when the user clicks on the "Older" button
+        // 17: Write a JavaScript functionality to remove the first 50 characters in the first paragraph for every blog post
 
-        // Write a JavaScript functionality that will create an alert with the name of the author every time the user hovers the mouse on an author's name
+        let arrayOfBlogs = document.querySelectorAll(".blog-post p:nth-of-type(2)");
+
+        function removeCharacters(){
+        for( let i = 0; i < arrayOfBlogs.length; i++){
+          arrayOfBlogs[i].innerText = arrayOfBlogs[i].innerText.substring(50);
+          }
+        }
+
+        removeCharacters()
+
+        // 18: Write a JavaScript functionality to add a new Blog Post (div with title and text)
+        // 19: Write a JavaScript functionality to remove the last Blog Post when the user clicks on the "Older" button
+
+        // 20: Write a JavaScript functionality that will create an alert with the name of the author every time the user hovers the mouse on an author's name
+        
+        let listOfAuthors = document.querySelectorAll("..blog-post .blog-post-meta a");
+        let alertTheName = function(e) {
+          alert(e.target.innerText);
+        }
+        for(let i = 0; i<listOfAuthors.length; i++){
+          listOfAuthors[i].addEventListener("mouseover", alertTheName);
+        }
+
         // EXTRA Write a JavaScript functionality that will remove the corresponding parent card from the DOM, upon clicking on their “Continue reading” link
     </script>
 </body>
